@@ -1,11 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+/* global __dirname */
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//app.js
+//Last update 03/03/23
+const config = require('./config');
+const createError = require('http-errors'); //Change var to const
+const express = require('express'); //Change var to const
+const path = require('path'); //Change var to const
+const cookieParser = require('cookie-parser'); //Change var to const
+const logger = require('morgan');//Change var to const
+
+const indexRouter = require('./routes/index');//Change var to const
+const usersRouter = require('./routes/users');//Change var to const
+//03/03/23 ☻
+const directorsRouter = require('./routes/directors');
 
 var app = express();
 
@@ -21,8 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.set('/directors', directorsRouter);
 // catch 404 and forward to error handler
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
