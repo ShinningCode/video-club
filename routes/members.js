@@ -2,7 +2,7 @@
 ////Last update 03/03/23
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/directors');
+const controller = require('../controllers/members');
 
 /* GET users listing. */
 router.get('/', controller.list);
@@ -13,8 +13,10 @@ router.post('/', controller.create);
 
 router.put('/:id', controller.replace);
 
-router.patch('/:id', controller.update);
-
+router.patch('/members/:id', function(req, res) {
+  // su lógica de parcheo aquí
+});
 router.delete('/:id', controller.destroy);
 
 module.exports = router;
+
