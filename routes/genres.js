@@ -2,9 +2,9 @@
 ////Last update 03/03/23
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/directors');
+const controller = require('../controllers/genres');
 
-/* GET users listing. */
+/* GET genres listing. */
 router.get('/', controller.list);
 
 router.get('/:id', controller.index);
@@ -18,3 +18,4 @@ router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 
 module.exports = router;
+
